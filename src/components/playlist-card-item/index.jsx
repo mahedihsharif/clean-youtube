@@ -1,12 +1,14 @@
 import { PlayCircleFilledOutlined } from "@mui/icons-material";
-import { Box, Button, CardActions, Stack } from "@mui/material";
+import { Box, Button, CardActions, Link, Stack } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 const PlaylistCardItem = ({
+  playlistId,
   playlistThumbnail,
   playlistTitle,
   channelTitle,
@@ -42,7 +44,13 @@ const PlaylistCardItem = ({
         <Button>
           <Stack direction={"row"} gap={1} alignItems={"center"}>
             <PlayCircleFilledOutlined />
-            start tutorial
+            <Link
+              to={`/player/${playlistId}`}
+              component={RouterLink}
+              sx={{ textDecoration: "none" }}
+            >
+              start tutorial
+            </Link>
           </Stack>
         </Button>
       </CardActions>
